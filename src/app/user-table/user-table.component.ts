@@ -18,11 +18,12 @@ export class UserTableComponent implements OnInit, OnDestroy {
   constructor(private usersService: UsersService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(() => {
-      this.activatedRoute.params.subscribe((value) => this.id = value[0]["id"] );
-      this.getUser(this.id);
+    this.activatedRoute.params.subscribe(params => {
+      this.activatedRoute.data.subscribe(data => {
+      this.getUser(params['id']);
+      });
     });
-
+   
   }
 
   public getUser(id: number) {
@@ -58,5 +59,4 @@ export class UserTableComponent implements OnInit, OnDestroy {
     this.unsubscraber$.next(null);
     this.unsubscraber$.complete();
   }
-
 }
