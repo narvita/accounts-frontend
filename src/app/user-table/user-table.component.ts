@@ -20,9 +20,7 @@ export class UserTableComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      this.activatedRoute.data.subscribe(data => {
       this.getUser(params['id']);
-      });
     });
   }
 
