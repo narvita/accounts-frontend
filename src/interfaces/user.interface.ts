@@ -1,5 +1,5 @@
 export interface UserInterface {
-    id: number,
+    userId: number,
     name: string,
     owner: string,
     createdDate: string,
