@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationStart, Route } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { UserInterface } from 'src/interfaces/user.interface';
 import { UsersService } from 'src/services/users.service';
@@ -19,7 +18,7 @@ export class UsersTableComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     this.userService.getUsers()
     .pipe(takeUntil(this.unsubscraber$))
-    .subscribe( (data: UserInterface[]) => {
+    .subscribe((data: UserInterface[]) => {
       this.users = data;
     })
   }
@@ -29,5 +28,3 @@ export class UsersTableComponent implements OnInit, OnDestroy{
     this.unsubscraber$.complete();
   }
 }
-
-

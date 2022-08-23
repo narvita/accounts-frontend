@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { UsersService } from 'src/services/users.service';
 import { UserDataInterface } from './user.data.ts/user-data.interface';
+
 @Component({
   selector: 'app-user-table',
   templateUrl: './user-table.component.html',
@@ -23,7 +24,6 @@ export class UserTableComponent implements OnInit, OnDestroy {
       this.getUser(params['id']);
       });
     });
-   
   }
 
   public getUser(id: number) {
